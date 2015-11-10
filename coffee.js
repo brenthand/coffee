@@ -43,13 +43,21 @@ function showClicks(j) {
 }
 
 function nxtClick() {
-	if(REPLAYCOUNT > 0) {
-		document.getElementById(EVENTS[REPLAYCOUNT-1].elId).style.border = "1px solid black";
+	//TODO set var for halting of replay
+	if(REPLAYCOUNT == TOTALEVENTS){
+		console.log("The End");
 	}
-	console.log(EVENTS[REPLAYCOUNT].elId)
-	var x = document.getElementById(EVENTS[REPLAYCOUNT].elId);
-	x.style.border = "5px solid red";
-	REPLAYCOUNT++;
+	else {
+		if(REPLAYCOUNT > 0) {
+			document.getElementById(EVENTS[REPLAYCOUNT-1].elId).style.border = "1px solid black";
+		}
+		
+		console.log(EVENTS[REPLAYCOUNT].elId)
+		var x = document.getElementById(EVENTS[REPLAYCOUNT].elId);
+		x.style.border = "5px solid red";
+		REPLAYCOUNT++;
+		
+	}
 }
 document.getElementById("strt").addEventListener("click", showClicks);
 document.getElementById("nxt").addEventListener("click", nxtClick);
